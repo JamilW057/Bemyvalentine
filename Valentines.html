@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Princesa 🌷</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: 'Brush Script MT', cursive;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card {
+            background: white;
+            padding: 80px;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 90%;
+            font-size: 32px;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 48px;
+        }
+
+        .options,
+        .start-message {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .start-message {
+            flex-direction: column;
+            font-size: 28px;
+            cursor: pointer;
+            background: #ff4d6d;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.2s;
+        }
+
+        .start-message:hover {
+            transform: scale(1.1);
+        }
+
+        .stuck-message,
+        .invitation,
+        .valentine-question,
+        .requirements {
+            margin-top: 30px;
+            font-size: 28px;
+            color: #333;
+            font-style: italic;
+            display: none;
+        }
+
+        .option {
+            background: #ff4d6d;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 28px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .option:hover {
+            transform: scale(1.1);
+        }
+
+        .escape-button {
+            background: #666;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 28px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: top 0.3s, left 0.3s;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        .falling {
+            position: absolute;
+            font-size: 24px;
+            animation: fall linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Mi Princesa 🌷</h1>
+        <p>To: Genesis.Diaz</p>
+        <div class="start-message" onclick="startProcess()">Presiona aquí para comenzar 💕</div>
+        <div class="valentine-question">
+            <p>¿Quieres ser mi Valentine? 💘</p>
+            <div class="options">
+                <div class="option" onclick="acceptValentine()">Sí</div>
+                <div class="option" onclick="acceptValentine()">Sí</div>
+            </div>
+            <div class="escape-button" onmouseover="moveEscapeButton()">Mejor no</div>
+        </div>
+        <div class="stuck-message">(Sabía que dirías que sí) ❤️</div>
+        <div class="invitation">✨ Te invito a un picnic en el Jardín Botánico 🌿 a las 11:00 AM ✨</div>
+        <div class="requirements">
+            <h2>Requisitos:</h2>
+            <ul>
+                <li>Tu hermosa sonrisa 😊</li>
+                <li>Sombreros Iguales</li>
+                <li>Muchos besos 💋</li>
+                <li>Dejar los teléfonos en una cajita 📦</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function startProcess() {
+            document.querySelector(".start-message").style.display = "none";
+            document.querySelector(".valentine-question").style.display = "block";
+        }
+        function acceptValentine() {
+            document.querySelector(".valentine-question").style.display = "none";
+            document.querySelector(".stuck-message").style.display = "block";
+            setTimeout(() => {
+                document.querySelector(".invitation").style.display = "block";
+                setTimeout(() => {
+                    document.querySelector(".requirements").style.display = "block";
+                }, 2000);
+            }, 2000);
+        }
+        function moveEscapeButton() {
+            const escapeButton = document.querySelector(".escape-button");
+            escapeButton.style.top = `${Math.random() * 80}vh`;
+            escapeButton.style.left = `${Math.random() * 80}vw`;
+        }
+        function createFallingElement() {
+            const elements = ["❤️", "🌷"];
+            const falling = document.createElement("div");
+            falling.classList.add("falling");
+            falling.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+            document.body.appendChild(falling);
+            falling.style.left = `${Math.random() * 100}vw`;
+            falling.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            setTimeout(() => falling.remove(), 5000);
+        }
+        setInterval(createFallingElement, 300);
+    </script>
+</body>
+
+</html>
