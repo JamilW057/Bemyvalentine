@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">  
-    
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -17,53 +16,54 @@
             text-align: center;
             overflow: hidden;
             position: relative;
+            margin: 0;
         }
 
         .card {
             background: white;
-            padding: 80px;
+            padding: 40px;
             border-radius: 20px;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
             text-align: center;
             max-width: 90%;
-            font-size: 32px;
+            font-size: 24px;
             position: relative;
         }
 
         h1 {
             color: #ff4d6d;
-            font-size: 48px;
+            font-size: 36px;
         }
 
         .options,
         .start-message {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
+            gap: 30px;
+            margin-top: 30px;
         }
 
         .start-message {
             flex-direction: column;
-            font-size: 28px;
+            font-size: 22px;
             cursor: pointer;
             background: #ff4d6d;
             color: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
             transition: transform 0.2s;
         }
 
         .start-message:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .stuck-message,
         .invitation,
         .valentine-question,
         .requirements {
-            margin-top: 30px;
-            font-size: 28px;
+            margin-top: 20px;
+            font-size: 24px;
             color: #333;
             font-style: italic;
             display: none;
@@ -72,23 +72,23 @@
         .option {
             background: #ff4d6d;
             color: white;
-            padding: 20px 40px;
+            padding: 15px 30px;
             border-radius: 10px;
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
             transition: transform 0.2s;
         }
 
         .option:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .escape-button {
             background: #666;
             color: white;
-            padding: 20px 40px;
+            padding: 15px 30px;
             border-radius: 10px;
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
             position: absolute;
             bottom: 20px;
@@ -111,8 +111,39 @@
 
         .falling {
             position: absolute;
-            font-size: 24px;
+            font-size: 20px;
             animation: fall linear infinite;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .start-message {
+                font-size: 20px;
+                padding: 15px;
+            }
+
+            .option {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .escape-button {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            .stuck-message,
+            .invitation,
+            .requirements {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
